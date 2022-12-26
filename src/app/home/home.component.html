@@ -1,0 +1,40 @@
+<h1>The Best App ever</h1>
+
+<div>
+  <div class="col-6">
+    <input (keyup)="search($event)"
+      type="text"
+      class="form-control"
+      placeholder="search contact here"
+    />
+  </div>
+</div> 
+      
+   <br>
+<table>
+    <tr>
+      <th>firstName</th>
+      <th>age</th>
+      <th>email</th>
+      <th>phone</th>
+      <th>birthDate</th>
+      <th>Photo</th>
+      <th>address</th>
+    </tr>
+    <tr *ngFor="let user of Allusers | filter:searchKey:'name'  ">
+      <td>{{ user.firstName }}</td>
+      <td>{{ user.age }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.phone }}</td>
+      <td>{{ user.birthDate }}</td>
+      <td>
+        <img
+          height="60px"
+          [src]="user.image"
+          alt="no image"
+          class="contact_image"
+        />
+      </td>
+      <td>{{ user.address.address }}</td>
+    </tr>
+  </table>
